@@ -3,7 +3,7 @@ const PROJECTS = [
     name: 'WrestleGuess',
     description: 'A pick\'em platform for wrestling fans. Make predictions on match outcomes, earn points, and compete on a global leaderboard.',
     tags: ['React', 'Node.js', 'PostgreSQL'],
-    url: null,
+    url: "wrestleguess.com",
   },
 ];
 
