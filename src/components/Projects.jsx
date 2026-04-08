@@ -5,6 +5,13 @@ const PROJECTS = [
     tags: ['React', 'Node.js', 'PostgreSQL'],
     url: "wrestleguess.com",
   },
+  {
+    name: 'The Dugout',
+    description: 'A RAG-powered chatbot for exploring football tactics and statistics through a conversational AI interface.',
+    tags: ['Python', 'FastAPI', 'TypeScript', 'Vite', 'Pinecone', 'SQL'],
+    url: 'https://dugout.ianlewis.online',
+    github: 'https://github.com/lewisian8787/rag_soccer',
+  },
 ];
 
 export default function Projects() {
@@ -24,11 +31,22 @@ export default function Projects() {
 }
 
 function ProjectCard({ project }) {
-  const card = (
+  return (
     <div style={cardStyle}>
       <div style={cardTopStyle}>
         <h3 style={cardTitleStyle}>{project.name}</h3>
-        {project.url && <span style={arrowStyle}>↗</span>}
+        <div style={cardLinksStyle}>
+          {project.github && (
+            <a href={project.github} target="_blank" rel="noopener noreferrer" style={cardLinkStyle}>
+              GitHub
+            </a>
+          )}
+          {project.url && (
+            <a href={project.url} target="_blank" rel="noopener noreferrer" style={cardLinkStyle}>
+              Live ↗
+            </a>
+          )}
+        </div>
       </div>
       <p style={cardDescStyle}>{project.description}</p>
       <div style={tagsStyle}>
@@ -38,10 +56,6 @@ function ProjectCard({ project }) {
       </div>
     </div>
   );
-
-  return project.url
-    ? <a href={project.url} target="_blank" rel="noopener noreferrer">{card}</a>
-    : card;
 }
 
 const sectionStyle = {
@@ -104,9 +118,17 @@ const cardTitleStyle = {
   letterSpacing: '-0.01em',
 };
 
-const arrowStyle = {
-  fontSize: '1rem',
-  color: 'rgba(255,255,255,0.3)',
+const cardLinksStyle = {
+  display: 'flex',
+  gap: '1.25rem',
+  flexShrink: 0,
+};
+
+const cardLinkStyle = {
+  fontSize: '0.8rem',
+  fontWeight: 500,
+  color: 'rgba(255,255,255,0.4)',
+  letterSpacing: '0.02em',
 };
 
 const cardDescStyle = {
