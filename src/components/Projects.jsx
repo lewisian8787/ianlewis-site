@@ -96,7 +96,7 @@ const gridStyle = {
 };
 
 const cardStyle = {
-  background: '#0d0d0d',
+  background: '#0d1520',
   padding: '2rem',
   display: 'flex',
   flexDirection: 'column',

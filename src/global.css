@@ -1,3 +1,7 @@
+:root {
+  --bg: #0d1520;
+}
+
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -9,12 +13,23 @@ html {
 }
 
 body {
-  background: #0d0d0d;
+  background: var(--bg);
   color: #e8e8e8;
   font-family: 'Inter', system-ui, sans-serif;
   font-size: 16px;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #c8a030;
+  border-radius: 4px;
 }
 
 a {
