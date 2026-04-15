@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import logoWhiteYellow from '../assets/logo_white_yellow.png';
+import logoYellowWhite from '../assets/logo_yellow_white.png';
 
 export default function Nav() {
   const [open, setOpen] = useState(false);
@@ -40,6 +42,12 @@ export default function Nav() {
         .overlay-link:nth-child(1) { animation-delay: 0.1s; }
         .overlay-link:nth-child(2) { animation-delay: 0.18s; }
         .overlay-link:nth-child(3) { animation-delay: 0.26s; }
+        .logo-wrap { position: relative; width: 60px; height: 60px; flex-shrink: 0; cursor: pointer; margin-left: -0.75rem; }
+        .logo-wrap img { position: absolute; top: 0; left: 0; width: 60px; height: 60px; border-radius: 4px; transition: opacity 0.15s; user-select: none; -webkit-user-drag: none; }
+        .logo-default { opacity: 1; }
+        .logo-hover { opacity: 0; }
+        .logo-wrap:hover .logo-default, .logo-wrap:active .logo-default { opacity: 0; }
+        .logo-wrap:hover .logo-hover, .logo-wrap:active .logo-hover { opacity: 1; }
         @media (max-width: 640px) {
           .nav-burger { display: flex; }
           .nav-links { display: none; }
@@ -47,7 +55,10 @@ export default function Nav() {
       `}</style>
       <nav style={navStyle}>
         <div style={brandStyle}>
-          <div style={logoPlaceholderStyle} />
+          <div className="logo-wrap">
+            <img src={logoWhiteYellow} alt="Ian Lewis logo" className="logo-default" />
+            <img src={logoYellowWhite} alt="" className="logo-hover" />
+          </div>
           <span style={logoStyle}>Ian<br />Lewis</span>
         </div>
         <div className="nav-links">
@@ -93,13 +104,6 @@ const brandStyle = {
   gap: '0.75rem',
 };
 
-const logoPlaceholderStyle = {
-  width: '60px',
-  height: '60px',
-  borderRadius: '4px',
-  background: 'rgba(255,255,255,0.1)',
-  flexShrink: 0,
-};
 
 const logoStyle = {
   fontSize: '1.4rem',
@@ -111,7 +115,7 @@ const logoStyle = {
 };
 
 const linkStyle = {
-  fontSize: '0.875rem',
+  fontSize: '1.7rem',
   color: 'rgba(255,255,255,0.5)',
   fontWeight: 500,
   cursor: 'pointer',
